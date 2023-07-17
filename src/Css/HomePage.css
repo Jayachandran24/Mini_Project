@@ -1,0 +1,112 @@
+.homepageleft {
+    background-image: url(../Assets/img/SelectLogin/SelectLoginLeft.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: contrast(0.8);
+}
+
+.homepageleft:hover {
+    filter: contrast(0.5);
+    transition: 1s;
+}
+
+.homepageright {
+    background-image: url(../Assets/img/SelectLogin/SelectLoginRight.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: contrast(0.6);
+    cursor: pointer;
+}
+
+.homepageright:hover {
+    opacity: 1;
+    filter: contrast(0.5);
+    transition: 1s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.selectlogin {
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1020;
+    width: 100%;
+}
+
+.circle {
+    width: 33%;
+    height: 558px;
+    top: 200px;
+    left: 630px;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: -10px;
+
+}
+
+.circle .doctor {
+    width: 100%;
+    height: 289px;
+    background-image: url(../Assets/img/SelectLogin/Doctor.avif);
+    border-top-left-radius: 45%;
+    border: 2px solid white;
+    background-size: cover;
+    border-bottom: none;
+    opacity: 0.7;
+    object-position: center center;
+}
+
+.circle .doctor:hover {
+    opacity: 1;
+    transition: 1s;
+}
+
+.circle .medical {
+    width: 100%;
+    height: 289px;
+    background-image: url(../Assets/img/SelectLogin/Medical.jpg);
+    border-top-right-radius: 45%;
+    border: 2px solid white;
+    background-size: cover;
+    border-bottom: none;
+    border-left: none;
+    opacity: 0.7;
+}
+
+.circle .medical:hover {
+    opacity: 1;
+    transition: 1s;
+}
+
+.circle .patient {
+    width: 100%;
+    height: 277px;
+    background-image: url(../Assets/img/SelectLogin/Patient.jpg);
+    border-bottom-right-radius: 39%;
+    border-bottom-left-radius: 39%;
+    background-size: cover;
+    border: 2px solid white;
+    opacity: 0.7;
+}
+
+.circle .patient:hover {
+    opacity: 1;
+    transition: 1s;
+}
+
+.health{
+    background: none;
+}

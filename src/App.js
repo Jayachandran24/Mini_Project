@@ -14,7 +14,8 @@ function App() {
       {/* <RegistorForm/> */}
       <BrowserRouter>
       <Routes>
-      <Route path='/' element={<LoginPageComponent/>} />
+      <Route path='/' element={<HomePage/>} />
+      <Route path='LoginPageComponent' element={<LoginPageComponent/>} />
       <Route path='RegistorForm' element={<RegistorForm/>} />
       <Route path="HomePage"  element={<HomePage/>} />
       <Route path="SideBar"  element={<SideBar/>} />

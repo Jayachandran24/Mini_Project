@@ -1,8 +1,43 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import {Link } from "react-router-dom";
+import { useState } from 'react';
+import axios from 'axios';
 
  const RegistorForm = () => {
+
+  const [formData, setFormData] = useState({
+    name:"",
+    location:"",
+    email: "",
+    password:"",
+    phone:"",
+    proferssion:"",
+  });
+  console.log(formData);
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    axios.post('http://localhost/miniproject/Backend/RegistorPage/RegistorPage.php', (formData))
+
+.then(response => {
+  console.log(response)
+  // console.log(response.data) 
+  // message.success(response.data.message)
+  })
+  .catch((error) => {
+    console.error(error);
+    // message.error(error?.data?.error?.message);
+  })
+
+}
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
   return (
     <Box
     width={'100%'}
@@ -22,15 +57,19 @@ import TextField from '@mui/material/TextField';
           id="outlined-required"
           label="Name"
           style={{width:'100%'}}
+          name='name'
+          onChange={handleChange} value={formData.name}
         />
           </div>
         <div className='w-full'>
         <TextField
           required
           id="outlined-disabled"
-          label="Email"
+          label="Location"
           style={{width:'100%'}}
           autoComplete='off'
+          name='location'
+          onChange={handleChange} value={formData.location}
         />
         </div>
 
@@ -40,23 +79,27 @@ import TextField from '@mui/material/TextField';
         <TextField
         required
           id="outlined-password-input"
-          label="Create Password"
-          type="password"
+          label="Email"
+          type="email"
           // autoComplete="current-password"
           autoComplete="off"
           style={{width:'100%'}}
+          name='email'
+          onChange={handleChange} value={formData.email}
         />
         </div>
         <div className='w-full'>
         <TextField
         required
           id="outlined-read-only-input"
-          label="Confirm Password"
+          label="Create Password"
           type="password"
           // InputProps={{
           //   readOnly: true,
           // }}
           style={{width:'100%'}}
+          name='password'
+          onChange={handleChange} value={formData.password}
         />
         </div>
         </div>
@@ -71,8 +114,10 @@ import TextField from '@mui/material/TextField';
           //   shrink: true,
           // }}
           style={{width:'100%'}}
+          name='phone'
+          onChange={handleChange} value={formData.phone}
         />
-        <button type='submit' className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{borderRadius:'12px'}}>Registor</button>
+        <button type='submit' name='submit' onClick={handleSubmit} className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{borderRadius:'12px'}}>Registor</button>
         </div>
         <div className='w-full'>
         <TextField
@@ -80,8 +125,12 @@ import TextField from '@mui/material/TextField';
           id="outlined-Proferssion"
           label="Proferssion"
           style={{width:'100%'}}
+          name='proferssion'
+          onChange={handleChange} value={formData.proferssion}
         />
-        <button type='button' className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{borderRadius:'12px'}}><span><a href="/">Back to Login</a></span></button>
+        <div className='bg-[#78988f] text-white w-5/12 mr-auto mt-6 ml-auto p-3 font-bold tracking-[1px]'  style={{borderRadius:'12px'}}>
+        <Link to="/LoginPageComponent"> <span>Back to Login</span></Link>
+        </div>
         </div>
         </div>
         

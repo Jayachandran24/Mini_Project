@@ -1,0 +1,18 @@
+.Navbar{
+    z-index: 100;
+    position: fixed;
+    width: 500px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+.Navbar h1{
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    padding: 15px 15px 0px 55px  ;
+}

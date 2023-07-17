@@ -1,0 +1,23 @@
+.sidebar{
+    width: 230px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    border-right: 1px solid rgb(230, 230, 230);
+}
+
+.sidebar ul li{
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(8, 8, 8);
+    padding: 13px 0;
+    /* background: yellow; */
+    border-radius: 12px;
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
