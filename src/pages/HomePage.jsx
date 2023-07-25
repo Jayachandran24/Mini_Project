@@ -8,6 +8,8 @@ import hospital2 from '../Assets/img/hospital2.jfif';
 import hospital3 from '../Assets/img/hospital3.jfif';
 import Facility from "../Components/Facility/Facility";
 import Department from "../Components/Departments/Departments";
+import Footer from "../Components/Footer/Footer";
+import Map from "../Components/Map/Map";
 const HomePage = () => {
     return (
         <>
@@ -99,7 +101,8 @@ const HomePage = () => {
                 </div>
                 <Facility/>
                 <Department/>
-
+                <Map/>
+                <Footer/>
 
             </div>
 
