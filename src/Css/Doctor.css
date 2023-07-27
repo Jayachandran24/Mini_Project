@@ -1,0 +1,6 @@
+.Doctorbg{
+    background-image: url(../Assets/img/patientbg.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
