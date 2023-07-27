@@ -1,0 +1,11 @@
+.patienthead {
+    background-image: url(../Assets/img/patientbg.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pregister{
+    background-color: white;
+    margin-top: 20px;
+}

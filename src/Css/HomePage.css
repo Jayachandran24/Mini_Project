@@ -40,7 +40,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    z-index: 1020;
+    z-index: 1;
     width: 100%;
 }
 
@@ -153,8 +153,26 @@
     flex-direction: column;
     justify-content: center;
   }
-  .health{
+  .health1{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+  }
+  .facility_list:hover{
+    border:none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color:black;
+  }
+
+  .dept {
+    color: rgb(184, 184, 184);
+  }
+
+
+  /* Footer */
+  .hospitalname{
+        background: linear-gradient(to right, #ff9999,
+    #b8b9ff, #ffdcff, #fff493);
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
   }

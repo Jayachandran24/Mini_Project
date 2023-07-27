@@ -9,7 +9,7 @@ import axios from 'axios';
 // const Form = () => {
 
 const LoginPageComponent = () => {
-
+const [succMessage, setSuccMessage] = useState(null);
   // const [showPassword, setShowPassword] = React.useState(false);
 
   // const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -31,7 +31,10 @@ const LoginPageComponent = () => {
         // console.log(response)
         console.log(response.data)
         console.log(response.data.message)
+        const message = response.data.message
         const role = response.data.role;
+        if(message === "Success"){
+          setSuccMessage ("Login successfull..,")
         if (role === "Doctor") {
           navigate("/Doctor")
         } else if(role === "Patient"){
@@ -41,6 +44,10 @@ const LoginPageComponent = () => {
         }else{
           navigate("/LoginPageComponent")
         }
+      }else {
+        setSuccMessage("Enter valid Email & Password")
+      }
+
         // message.success(response.data.message)
       })
       .catch((error) => {
@@ -64,9 +71,11 @@ const LoginPageComponent = () => {
             <h1 className='text-3xl text-center mt-[150px] font-bold tracking-[1px]' >GR Hospital</h1>
             <p className='health mt-10 text-xl tracking-[1px]'>“Medicines cure diseases, but only doctors can cure patients.”</p>
             <img className='w-[100px] ml-auto mr-auto mt-10' src={hospital} alt="Logo" />
+            
           </div>
-          <form className='w-full h-[45vh] flex justify-center items-end' >
+          <form className='w-full h-[50vh] flex justify-center items-end' >
             <div className=' w-full '>
+            {succMessage && <div className='w-[380px] text-red-500 text-center ml-auto mr-auto bg-[#d1e3de94] p-2 mb-7 rounded-[12px] font-bold tracking-[2px]'>{succMessage}</div>}
               <div className='flex flex-col w-[55%] mr-auto ml-auto items-baseline py-3'>
                 <label className='font-semibold mb-2' style={{ letterSpacing: '1px' }}>Email : </label>
                 <input type="email" name='email' placeholder='Enter Your Email' className='w-full p-3' style={{ border: '1px solid gray', borderRadius: '12px' }} onChange={handleChange} value={formData.email} />
@@ -82,6 +91,7 @@ const LoginPageComponent = () => {
               <p className='mt-3 font-semibold' style={{ letterSpacing: '1px' }}> For More Login
                 <Link to='/' className='text-blue-700 underline ml-2'>Click here</Link>
               </p>
+              
             </div>
           </form>
         </div>

@@ -1,12 +1,13 @@
+.Nav{
+    z-index: 10;
+}
 .Navbar{
-    z-index: 190;
-    position: fixed;
     width: 500px;
-    height: 80px;
+    height: 80px; 
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-bottom-right-radius: 150px;
-    border-bottom-left-radius: 150px;
+    border-bottom-left-radius: 150px; 
 }
 .Navbar h1{
     color: rgb(0, 0, 0);
@@ -14,5 +15,9 @@
     font-weight: 600;
     font-size: 25px;
     text-align: center;
-    padding: 15px 15px 0px 55px  ;
+    padding: 0 15px  ;
+    background: linear-gradient(to right, #ff0062,
+    #080cff, #cf23cf, #eedd44);
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
 }

@@ -6,7 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const RegistorForm = () => {
-
+  
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -15,6 +15,16 @@ const RegistorForm = () => {
     phone: "",
     proferssion: "",
   });
+  const [succMessage, setSuccMessage] = useState(null);
+
+  const validate = (formValues) => {
+    if(!formValues.name || !formValues.location || !formValues.email || !formValues.password
+      || !formValues.phone || !formValues.proferssion){
+        setSuccMessage('Please fill the all fields *')
+        return false;
+      }
+      return true;
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost/miniproject/Backend/RegistorPage/RegistorPage.php', (formData))
@@ -22,12 +32,30 @@ const RegistorForm = () => {
       .then(response => {
         console.log(response)
         console.log(response.data)
-        console.log(response.data.message)
-        // message.success(response.data.message)
+        console.log("message:" + response.data.message)
+        const message = response.data.message;
+        // const error_message = response.data.error_message;
+        if(!validate(formData)) return;
+        setSuccMessage('');
+        if(message === "Success"){
+          setFormData (
+            {
+            name:"",
+            location: "",
+            email: "",
+            password: "",
+            phone: "",
+            proferssion: "",
+          })
+          setSuccMessage (
+            'Form submitted successfully!');
+        }
+        // else if (error_message === "wrong input"){
+        //   setSuccMessage('Enter all the fields');
+        // }
       })
       .catch((error) => {
         console.error(error);
-        // message.error(error?.data?.error?.message);
       })
 
   }
@@ -47,7 +75,8 @@ const RegistorForm = () => {
     >
       <h1 className='mt-10 font-bold text-3xl'>Registration Form</h1>
       <div className='mt-20'>
-        <div className='w-[90%] flex gap-10 mt-7 mr-auto ml-auto'>
+      {succMessage && <div className='text-lg font-semibold tracking-[1px] bg-[#e5f7f2] p-2 w-[500px] mr-auto ml-auto rounded-[12px]'>{succMessage}</div>}
+        <div className='w-[90%] flex gap-10 mt-10 mr-auto ml-auto'>
           <div className='w-full'>
             <TextField
               required
@@ -136,7 +165,8 @@ const RegistorForm = () => {
             </div>
           </div>
         </div>
-
+        
+        
       </div>
 
 

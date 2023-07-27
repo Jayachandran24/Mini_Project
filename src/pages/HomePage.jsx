@@ -38,8 +38,8 @@ const HomePage = () => {
                     </div>
 
                     <div className="homepageleft" >
-                        <div className=" health w-full h-[90vh] flex justify-start items-end text-black px-5">
-                            <div >
+                        <div className=" health w-full h-[90vh] flex justify-start items-end text-white px-5">
+                            <div>
                                 <h1 className="text-5xl font-bold text-left">'Health</h1>
                                 <p className="text-xl">“A good laugh and a long sleep are the best </p>
                                 <p className="text-xl">cures in the doctor’s book.”</p>
@@ -58,7 +58,7 @@ const HomePage = () => {
                 </div>
                 <div className="mt-10">
                     <h3 className="text-3xl tracking-[1px] font-bold">Our Services</h3>
-                    <p className=" health text-2xl tracking-[1px] mt-10">Health is not valued till sickness comes.</p>
+                    <p className=" health1 text-2xl tracking-[1px] mt-10">Health is not valued till sickness comes.</p>
                     <p className="text-left mt-10 ml-5 mb-5 text-slate-400">Flip to see address</p>
                     <div className="flex w-full justify-evenly items-center">
                         <div className="flip w-[500px] h-[300px]">

@@ -12,6 +12,7 @@
 
     if(!empty($_POST)){
         $conn = new mysqli($servername,$username,$password,$mydb);
+        http_response_code(200);
         if(!$conn){
             $data['status'] = "error";
             $data['message'] = "database not connected";
@@ -23,26 +24,29 @@
             $Phone = $_POST['phone'];
             $Proferssion = $_POST['proferssion'];
             
-            echo($Password);
+            // echo($Password);
             
-    
+            if(!empty($Name) && !empty($Location) && !empty($Email) && !empty($Password) && !empty($Phone) && !empty($Proferssion)){
             $sql = "insert into registorform(name,location,email,password,phone,proferssion)values('$Name','$Location','$Email','$Password','$Phone','$Proferssion')";
-            if(mysqli_query($conn,$sql)){
+            $result = mysqli_query($conn, $sql);
+            // $row = mysqli_fetch_assoc($result);
+            
+            if($result){
                 $data['status'] = "ok";
                 $data['message'] = "Success";
+            
             }
             else {
-    
+                $data['status'] = "ok";
                 $data['message'] = "failed";
             }
+        }else{
+            $data['error_message'] = "wrong input";
+        }
         }
     }else{
         die();
     }
-    // if(isset($_POST['submit'])){
-        
-       
-    // }
     echo json_encode($data);
 
 
