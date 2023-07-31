@@ -4,9 +4,10 @@ import TextField from '@mui/material/TextField';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import axios from 'axios';
+import Button from '../Button/Button';
 
 const RegistorForm = () => {
-  
+  const END_POINT = `${process.env.REACT_APP_API_ENDPOINT}/RegistorPage.php`;
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -27,7 +28,8 @@ const RegistorForm = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost/miniproject/Backend/RegistorPage/RegistorPage.php', (formData))
+    // axios.post('http://localhost/miniproject/Backend/RegistorPage.php', (formData))
+    axios.post(END_POINT, (formData))
 
       .then(response => {
         console.log(response)
@@ -143,7 +145,8 @@ const RegistorForm = () => {
               name='phone'
               onChange={handleChange} value={formData.phone}
             />
-            <button type='submit' name='submit' onClick={handleSubmit} className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }}>Registor</button>
+            <Button type='submit' buttonName='Registor'  onclick={handleSubmit} className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }}/>
+            {/* <button type='submit' name='submit' onClick={handleSubmit} className='bg-[#78988f] text-white w-5/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }}>Registor</button> */}
           </div>
           <div className='w-full'>
             <div className='flex justify-evenly items-center h-[60px]'>

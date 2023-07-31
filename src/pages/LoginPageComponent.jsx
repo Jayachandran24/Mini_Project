@@ -4,11 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import hospital from '../Assets/img/logo.png'
 import { useState } from 'react';
 import axios from 'axios';
+import Button from '../Components/Button/Button';
 // import { useNavigate } from 'react-router-dom';
 
 // const Form = () => {
 
 const LoginPageComponent = () => {
+  const END_POINT = `${process.env.REACT_APP_API_ENDPOINT}/LoginPage.php`;
 const [succMessage, setSuccMessage] = useState(null);
   // const [showPassword, setShowPassword] = React.useState(false);
 
@@ -25,7 +27,8 @@ const [succMessage, setSuccMessage] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost/miniproject/Backend/LoginPage/LoginPage.php', (formData))
+    // axios.post('http://localhost/miniproject/Backend/LoginPage.php', (formData))
+    axios.post(END_POINT, (formData))
 
       .then(response => {
         // console.log(response)
@@ -84,7 +87,8 @@ const [succMessage, setSuccMessage] = useState(null);
                 <label className='font-semibold mb-2' style={{ letterSpacing: '1px' }}>Password : </label>
                 <input type="Password" name='password' placeholder='Enter Your Password' className='w-full p-3' style={{ border: '1px solid gray', borderRadius: '12px' }} onChange={handleChange} value={formData.password} />
               </div>
-              <button type='submit' name='submit' className='bg-[#78988f] text-white w-6/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }} onClick={handleSubmit}>LogIn</button>
+              <Button type='submit' name='submit' className='bg-[#78988f] text-white w-6/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }} onclick={handleSubmit} buttonName='LogIN' />
+               {/* <button type='submit' name='submit' className='bg-[#78988f] text-white w-6/12 mr-auto ml-auto mt-6 p-3 font-bold tracking-[1px]' style={{ borderRadius: '12px' }} onClick={handleSubmit}>LogIn</button> */}
               <p className='mt-3 font-semibold' style={{ letterSpacing: '1px' }}> For Registor
                 <Link to='/RegistorForm' className='text-blue-700 underline ml-2'>Click here</Link>
               </p>

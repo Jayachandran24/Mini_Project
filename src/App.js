@@ -23,6 +23,8 @@ import Patient from "./pages/Patient";
 // import PatientAppointment from "./Components/Patient/PatientAppointment";
 import PatientReport from "./Components/Patient/PatientReport";
 import PatientRegister from "./pages/DoctorApp/PatientRegister";
+import Appointments from "./pages/DoctorApp/Appointment";
+import Report from "./pages/Reports";
 
 function App() {
   return (
@@ -46,10 +48,13 @@ function App() {
       <Route path='/Urology' element={<Urology/>}/>
       <Route path="/Doctor" element={<Doctor/>}/>
       <Route path='/PatientRegister' element={<PatientRegister/>}/>
-      <Route path="/Medical" element={<Medical/>}/>
+      <Route path='/Appointment' element={<Appointments/>}/>
+      
       <Route path="/Patient" element={<Patient/>}/>
       {/* <Route path='/PatientAppointment' element={<PatientAppointment/>}/> */}
       <Route path='/PatientReport' element={<PatientReport/>}/>
+      <Route path="/Medical" element={<Medical/>}/>
+      <Route path="/Report" element={<Report/>}/>
       </Routes>
       
     </div>

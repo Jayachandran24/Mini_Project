@@ -17,8 +17,11 @@ const Doctor = () => {
                         <Link to={'/PatientRegister'}>
                             <h3 className=" pregister text-lg tracking-[1px] font-semibold p-2 rounded-[12px]">Register for New Patient</h3>
                         </Link>
-                        <Link to={'/PatientRegister'}>
+                        <Link to={'/Appointment'}>
                             <h3 className=" pregister text-lg tracking-[1px] font-semibold p-2 rounded-[12px]">Appointments</h3>
+                        </Link>
+                        <Link to={'/LoginPageComponent'}>
+                            <h3 className=" pregister text-lg tracking-[1px] font-semibold p-2 rounded-[12px] text-slate-600">Logout</h3>
                         </Link>
                     </div>
                 </div>

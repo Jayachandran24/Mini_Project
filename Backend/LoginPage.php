@@ -5,10 +5,15 @@
     $rest_json = file_get_contents("php://input");
     $_POST = json_decode($rest_json, true);
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $mydb = "test";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $mydb = "test";
+    require_once 'config.php';
+    $servername = $Servername;
+    $username = $Username;
+    $password = $Password;
+    $mydb = $Mydb; 
     // $conn = new mysqli($servername,$username,$password,$mydb);
 
 // //     if($conn->connect_error) {
@@ -46,7 +51,7 @@ if(!empty($_POST)){
         $sql = "select * from registorform where email='".$Email."' and password='" .$Password."' ";
         
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($result);
+        $row = mysqli_fetch_assoc($result);
         
                 if($result && mysqli_num_rows($result) > 0){
                     // if($Result['profession'] == ''){
