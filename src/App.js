@@ -25,6 +25,7 @@ import PatientReport from "./Components/Patient/PatientReport";
 import PatientRegister from "./pages/DoctorApp/PatientRegister";
 import Appointments from "./pages/DoctorApp/Appointment";
 import Report from "./pages/Reports";
+import Reportview from "./pages/Reportsview";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
       <Route path='/PatientReport' element={<PatientReport/>}/>
       <Route path="/Medical" element={<Medical/>}/>
       <Route path="/Report" element={<Report/>}/>
+      <Route path="/Reportsview" element={<Reportview/>}/>
       </Routes>
       
     </div>

@@ -24,11 +24,12 @@ if (!empty($_POST)) {
         $Password = $_POST['password'];
         $Phone = $_POST['phone'];
         $Proferssion = $_POST['proferssion'];
+        $DocName = $_POST['docname'];
 
         // echo($Password);
 
         if (!empty($Name) && !empty($Location) && !empty($Email) && !empty($Password) && !empty($Phone) && !empty($Proferssion)) {
-            $sql = "insert into registorform(name,location,email,password,phone,proferssion)values('$Name','$Location','$Email','$Password','$Phone','$Proferssion')";
+            $sql = "insert into registorform(name,location,email,password,phone,proferssion,docname)values('$Name','$Location','$Email','$Password','$Phone','$Proferssion','$DocName')";
             $result = mysqli_query($conn, $sql);
             // $row = mysqli_fetch_assoc($result);
 

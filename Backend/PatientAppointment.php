@@ -27,7 +27,7 @@ if(!empty($_POST)){
        
         
         if(!empty($Name) && !empty($Email) && !empty($Phone) && !empty($Date) && !empty($Doctor)){
-            $sql = "insert into appointmentbooking(name,email,phone,date,doctor)values('$Name','$Email','$Phone','$Date','$Doctor')";
+            $sql = "insert into appointmentbooking(name,email,phone,date,docname)values('$Name','$Email','$Phone','$Date','$Doctor')";
 
             $result = mysqli_query($conn, $sql);
             if($result){

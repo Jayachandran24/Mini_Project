@@ -24,6 +24,9 @@ const [succMessage, setSuccMessage] = useState(null);
     email: "",
     password: "",
   });
+  const [docName, setDocName] = useState({
+    docname : "",
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,6 +39,8 @@ const [succMessage, setSuccMessage] = useState(null);
         console.log(response.data.message)
         const message = response.data.message
         const role = response.data.role;
+
+
         if(message === "Success"){
           setSuccMessage ("Login successfull..,")
         if (role === "Doctor") {
@@ -47,6 +52,17 @@ const [succMessage, setSuccMessage] = useState(null);
         }else{
           navigate("/LoginPageComponent")
         }
+
+
+        const doctorName = response.data.docname;
+        console.log(doctorName);
+        localStorage.setItem('Docmail', doctorName);
+        axios.post('http://localhost/miniproject/Backend/DoctorAppointment.php', (docName))
+        .then(response => {
+          
+          setDocName (doctorName);
+          console.log(response.data);
+        })
       }else {
         setSuccMessage("Enter valid Email & Password")
       }

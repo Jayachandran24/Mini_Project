@@ -4,23 +4,22 @@ import Navbar from "../Components/SideBar/Navbar";
 import { Link } from "react-router-dom";
 
 
-const Report = () => {
+const Repostsview = () => {
 
-        const END_POINT = `${process.env.REACT_APP_API_ENDPOINT}/DoctorAppointment.php`;
-        const [data, setData] = useState([])
-        useEffect(() => {
-            axios(END_POINT).then(response => {
-                console.log(response.data)
-                setData(response.data.values)
-            }).catch(error => {
-                console.log(error);
-            });
-        }, [])
-
-
+    const END_POINT_FR_ID = `${process.env.REACT_APP_API_ENDPOINT}/PatientAppointment.php`;
+    const [data, setDatabyid] = useState([])
+    useEffect(() => {
+        axios(END_POINT_FR_ID).then(response => {
+            console.log(response.data)
+            setDatabyid(response.data)
+        }).catch(error => {
+            console.log(error);
+        });
+    }, [])
+    console.log(data);
     return(
         <>
-        <div className="bg-slate-600">
+            <div className="bg-slate-600">
                 <div>
                     <Navbar />
                 </div>
@@ -61,5 +60,4 @@ const Report = () => {
     )
 }
 
-
-export default Report;
+export default Repostsview;

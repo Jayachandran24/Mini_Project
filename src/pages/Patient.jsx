@@ -8,6 +8,15 @@ import axios from "axios";
 
 const Patient = () => {
     const END_POINT = `${process.env.REACT_APP_API_ENDPOINT}/PatientAppointment.php`;
+    // const DOCTOR_NAME = `${process.env.REACT_APP_API_ENDPOINT}/DoctorAppointment.php`;
+    // const [formDataDoctor, setFormDataDoctor] = useState({
+    //     doctor:""
+    // }); 
+    // axios.post(DOCTOR_NAME,(formDataDoctor))
+    // .then(response => {
+    //     console.log(response)
+    // })
+
     const [formData, setFormData] = useState({
         name:"",
         mail:"",
@@ -49,24 +58,11 @@ const Patient = () => {
             [e.target.name]: e.target.value
         }))
     }
+    
     return (
         <>
             <div>
-                {/* <div className="patienthead">
-                    <Navbar />
-                    <div className=" h-full flex items-center flex-col sm:flex-row">
-                        <div className="w-[350px] ml-auto mr-14">
-                            <Link to={'/PatientAppointment'}>
-                                <h3 className=" pregister text-lg tracking-[1px] font-semibold p-2 rounded-[12px]">Book an Appointment</h3>
-                            </Link>
-                            <Link to={'/PatientRegister'}>
-                                <h3 className=" pregister text-lg tracking-[1px] font-semibold p-2 rounded-[12px]">Register for an Appointment</h3>
-                            </Link>
-                        </div>
-                    </div>
-                </div> */}
-                
-                    <div className="patienthead w-full">
+                   <div className="patienthead w-full">
                     <Navbar />
                     
                     <div className="h-screen w-full ml-auto flex items-center justify-end">
@@ -107,10 +103,11 @@ const Patient = () => {
                                     <label className="font-semibold tracking-[1px] mb-2">Doctor:</label>
                                     <select name="doctor" id="" className="p-2 border border-slake-400" onChange={handleChange} value={formData.doctor}>
                                         <option value="">Select a doctor</option>
-                                        <option value="Dr.Jayachandran" onChange={handleChange} >Dr.Jayachandran</option>
+                                        <option value="Doctor" onChange={handleChange} >Dr.Doctor</option>
                                         <option value="Dr.Madhan" onChange={handleChange} >Dr.Madhan</option>
                                         <option value="Dr.Balaji" onChange={handleChange} >Dr.Balaji</option>
                                         <option value="Dr.Balakannan" onChange={handleChange} >Dr.Balakannan</option>
+                                        <option value="Dr.Balakannan" onChange={handleChange} >Dr.Jayachandran</option>
                                     </select>
                                 </div>
                                 <div>

@@ -8,16 +8,15 @@ const Appointments = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         axios(END_POINT).then(response => {
-            // const values = response.data.values;
-            
-            console.log(response.data);
+            // console.log(response.data.docname);
+            console.log(response.data.values)
             setData(response.data.values)
+            
         }).catch(error => {
             console.log(error);
         });
     }, [])
-    console.log('data',data);
-
+    // console.log(data)
     return (
         <>
             <div className="bg-slate-600">
@@ -29,6 +28,8 @@ const Appointments = () => {
                         <table className="w-9/12 mr-auto ml-auto mt-14">
                             <thead>
                                 <tr>
+                                        {/* <th>{localStorage.getItem('Docmail')}</th> */}
+                                    <th className="border border-slake-400">Id</th>
                                     <th className="border border-slake-400">Name</th>
                                     <th className="border border-slake-400">Email</th>
                                     <th className="border border-slake-400">Mobile</th>
@@ -45,7 +46,7 @@ const Appointments = () => {
                                         <td className="border border-slake-400">{values.email}</td>
                                         <td className="border border-slake-400">{values.phone}</td>
                                         <td className="border border-slake-400">{values.date}</td>
-                                        <td className="border border-slake-400">{values.doctor}</td>
+                                        <td className="border border-slake-400">{values.docname}</td>
                                         </tr>
                                     })
                                 }

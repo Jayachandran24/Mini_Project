@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import axios from 'axios';
 import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
 
 const RegistorForm = () => {
+  const [showModal, setShowModal] = useState(false);
   const END_POINT = `${process.env.REACT_APP_API_ENDPOINT}/RegistorPage.php`;
   const [formData, setFormData] = useState({
     name: "",
@@ -15,6 +17,7 @@ const RegistorForm = () => {
     password: "",
     phone: "",
     proferssion: "",
+    docname:"",
   });
   const [succMessage, setSuccMessage] = useState(null);
 
@@ -48,6 +51,7 @@ const RegistorForm = () => {
             password: "",
             phone: "",
             proferssion: "",
+            docname:"",
           })
           setSuccMessage (
             'Form submitted successfully!');
@@ -151,15 +155,22 @@ const RegistorForm = () => {
           <div className='w-full'>
             <div className='flex justify-evenly items-center h-[60px]'>
               <div>
+                <button type='button' onClick={() => setShowModal(true)}>
                 <input type="radio" name="proferssion" value={"Doctor"} onChange={handleChange} />
+                </button>
                 <label className='tracking-[1px] ml-2'>Doctor</label>
               </div>
+              {showModal && <Modal type='text' placeholder='Eg: Dr.___' className='border border-slate-400 p-1' onchange={handleChange} name="docname" value={formData.docname}/>}
               <div>
+              <button type='button' onClick={() => setShowModal(false)}>
                 <input type="radio" name="proferssion" value={"Medical"} onChange={handleChange} />
+                </button>
                 <label className='tracking-[1px] ml-2'>Medical</label>
               </div>
               <div>
+              <button type='button' onClick={() => setShowModal(false)}>
                 <input type="radio" name="proferssion" value={"Patient"} onChange={handleChange} />
+                </button>
                 <label className='tracking-[1px] ml-2'>Patient</label>
               </div>
             </div>
